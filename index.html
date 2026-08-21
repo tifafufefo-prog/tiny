@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinau Jawa | Learn Javanese Culture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Noto+Sans+Javanese&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <nav class="topbar">
+        <a class="brand" href="#home"><span class="brand-mark">ꦗ</span><span>Sinau <b>Jawa</b></span></a>
+        <div class="nav-links"><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#culture">Culture</a></div>
+        <button class="profile" aria-label="Open learner profile">AR</button>
+      </nav>
+
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">SELAMAT RAWUH · WELCOME</p>
+          <h1>Discover Java,<br /><em>one story at a time.</em></h1>
+          <p class="intro">A playful learning space for international students to explore Javanese traditions, language, and the beautiful <i>aksara Jawa</i>.</p>
+          <div class="hero-actions"><button class="button primary" onclick="document.querySelector('#learn').scrollIntoView({behavior:'smooth'})">Start learning <span>→</span></button><button class="text-button" onclick="playWelcome()">▶ Hear the welcome</button></div>
+          <div class="streak"><span class="flame">♨</span><div><b>3 day streak!</b><small>Keep your curiosity glowing.</small></div></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of Borobudur at sunrise">
+          <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+          <div class="temple"><div class="stupa top"></div><div class="temple-tier tier-one"></div><div class="temple-tier tier-two"></div><div class="temple-base"></div></div>
+          <p class="art-label">BOROBUDUR · MAGELANG</p>
+        </div>
+      </section>
+
+      <section class="progress-strip" aria-label="Your progress"><div><span>YOUR JOURNEY</span><b>Level 2 · Curious Explorer</b></div><div class="progress-track"><i></i></div><b class="progress-value">280 / 500 XP</b><span class="leaf">❧</span></section>
+
+      <section class="levels section" id="learn">
+        <div class="section-heading"><div><p class="eyebrow">CHOOSE YOUR PATH</p><h2>Learn at your own pace</h2></div><p>Pick a level that feels right today.<br />You can change it anytime.</p></div>
+        <div class="level-grid">
+          <article class="level-card easy"><div class="card-top"><span class="level-icon">☼</span><span class="pill">START HERE</span></div><p class="eyebrow">LEVEL 01</p><h3>Easy</h3><p>Everyday words, warm greetings, and the sights you’ll meet first.</p><div class="card-footer"><span>4 lessons · 12 min</span><button onclick="openLesson('easy')">Explore <b>→</b></button></div></article>
+          <article class="level-card medium"><div class="card-top"><span class="level-icon">✦</span><span class="pill">POPULAR</span></div><p class="eyebrow">LEVEL 02</p><h3>Medium</h3><p>Discover ceremonies, food, and stories behind Javanese traditions.</p><div class="card-footer"><span>6 lessons · 25 min</span><button onclick="openLesson('medium')">Explore <b>→</b></button></div></article>
+          <article class="level-card hard"><div class="card-top"><span class="level-icon">♜</span><span class="pill">CHALLENGE</span></div><p class="eyebrow">LEVEL 03</p><h3>Hard</h3><p>Read <i>aksara Jawa</i>, speak naturally, and explore deep philosophy.</p><div class="card-footer"><span>8 lessons · 40 min</span><button onclick="openLesson('hard')">Explore <b>→</b></button></div></article>
+        </div>
+      </section>
+
+      <section class="feature section" id="culture">
+        <div class="feature-image"><div class="batik-pattern">꧀ &nbsp; ◇ &nbsp; ꧀<br />◇ &nbsp; ꧀ &nbsp; ◇<br />꧀ &nbsp; ◇ &nbsp; ꧀</div><div class="food-bowl">🍚</div><span>RASA & CERITA</span></div>
+        <div class="feature-copy"><p class="eyebrow">TODAY'S CULTURAL BITE</p><h2>More than a meal:<br /><em>the art of sharing.</em></h2><p>In Java, <i>gudeg</i> is more than its sweet, comforting taste. It’s a story of patience, community, and Yogyakarta’s long-held traditions.</p><div class="lesson-meta"><span>◷ 5 MIN WATCH</span><span>◎ CULTURE</span></div><button class="button dark" onclick="openVideo()">Watch the story <span>→</span></button></div>
+      </section>
+
+      <section class="practice section" id="practice">
+        <div class="section-heading"><div><p class="eyebrow">AKSARA LAB</p><h2>Write it. Say it.</h2></div><p>Learn the Javanese script through<br />small moments of practice.</p></div>
+        <div class="practice-grid">
+          <article class="practice-card write-card"><div class="practice-title"><span class="round-icon">✎</span><div><h3>Trace the character</h3><p>Follow the strokes at your own rhythm.</p></div><span class="xp">+10 XP</span></div><div class="trace-area"><span class="script ghost">ꦲ</span><canvas id="traceCanvas" width="320" height="210" aria-label="Draw the Javanese character ha"></canvas><button class="reset drawing" onclick="clearCanvas()">↻ Try again</button></div><div class="character-label"><span class="script">ꦲ</span><div><b>ha</b><small>Like “ha” in <i>harmony</i></small></div><button class="sound-button" onclick="speak('ha')">♬</button></div></article>
+          <article class="practice-card speak-card"><div class="practice-title"><span class="round-icon">♬</span><div><h3>Say it out loud</h3><p>Listen, then give it a try.</p></div><span class="xp">+15 XP</span></div><div class="word-card"><span class="script">ꦱꦸꦒꦼꦁ</span><b>Sugeng enjing</b><small>“Good morning”</small><button class="listen" onclick="speak('Sugeng enjing')">▶ Listen</button></div><button class="record" id="recordBtn" onclick="toggleRecording()"><span>●</span> Tap to speak</button><p class="record-note" id="speechStatus">We’ll listen for your pronunciation.</p></article>
+        </div>
+      </section>
+    </main>
+    <div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+    <footer>Made with curiosity for learners of Java · <span class="script">ꦱꦸꦒꦼꦁ</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
